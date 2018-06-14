@@ -37,15 +37,15 @@ public class MainActivity extends AppCompatActivity {
   private void addUser() {
     //方式一
     ContentValues values = new ContentValues();
-    values.put("name", "WJ");
-    values.put("age", "18");
+    values.put("name", "WJ 3");
+    //values.put("age", "18");
     long l = LitePal.getDatabase().insert("User", "", values);
     Log.v("LitePal Log", "插入成功 : " + l);
 
     //方式二
     User user = new User();
-    user.setName("WJ 2");
-    user.setAge("20");
+    user.setName("WJ 4");
+    //user.setAge("20");
     //返回是否插入成功的boolean值 不会打印错误日志
     boolean save = user.save();
     Log.v("LitePal Log", "插入成功 : " + save);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
   private void queryUser() {
     List<User> all = DataSupport.findAll(User.class);
     for (User u : all) {
-      Log.v("LitePal Log", "查询：" + u.getName());
+      Log.v("LitePal Log", "查询：Name:" + u.getName() /*+ " Age:" + u.getAge()*/);
     }
   }
 
